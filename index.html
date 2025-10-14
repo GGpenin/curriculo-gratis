@@ -99,6 +99,21 @@
     animation: fadeInUp 0.6s ease-out forwards;
   }
 
+  @keyframes floaty {
+    0% { 
+      transform: translate(-50%, -50%) translateY(0) rotate(var(--rot, 0deg)) scale(var(--scale, 1)); 
+    }
+    50% { 
+      transform: translate(-50%, -50%) translateY(calc(-10px * var(--float-mult, 1))) rotate(calc(var(--rot, 0deg) + 2deg)) scale(calc(var(--scale, 1) * 1.02)); 
+    }
+    100% { 
+      transform: translate(-50%, -50%) translateY(0) rotate(var(--rot, 0deg)) scale(var(--scale, 1)); 
+    }
+  }
+  .animate-floaty {
+    animation: floaty var(--dur, 10s) ease-in-out infinite;
+  }
+
 </style>
 </head>
   <body class="bg-[var(--app-bg)]">
