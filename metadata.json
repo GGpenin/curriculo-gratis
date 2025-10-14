@@ -1,0 +1,5 @@
+{
+  "name": "AI Resume Builder",
+  "description": "A modern, AI-powered resume builder that allows users to create, customize, and download their resumes as PDFs. It features a live preview and AI-enhancement for key sections to help craft the perfect professional summary and experience descriptions.",
+  "requestFramePermissions": []
+}

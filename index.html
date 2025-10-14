@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerador de Currículo com IA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.24.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "html2canvas": "https://esm.sh/html2canvas@1.4.1",
+    "jspdf": "https://esm.sh/jspdf@2.5.1",
+    "file-saver": "https://esm.sh/file-saver@2.0.5"
+  }
+}
+</script>
+<style>
+  :root {
+    --app-bg: #0d1117;
+    --panel-bg: rgba(22, 27, 34, 0.5);
+    --panel-bg-opaque: #161b22;
+    --panel-border: #30363d;
+    --app-text: #c9d1d9;
+    --text-muted: #8b949e;
+    --app-accent: #22d3ee;
+    --app-accent-hover: #0e7490;
+    --app-accent-text: #ffffff;
+    --input-bg: #161b22;
+    --input-border: #30363d;
+  }
+  .theme-dark-cyan {
+    --app-bg: #0d1117;
+    --panel-bg: rgba(22, 27, 34, 0.5);
+    --panel-bg-opaque: #161b22;
+    --panel-border: #30363d;
+    --app-text: #c9d1d9;
+    --text-muted: #8b949e;
+    --app-accent: #22d3ee;
+    --app-accent-hover: #0e7490;
+    --app-accent-text: #ffffff;
+    --input-bg: #161b22;
+    --input-border: #30363d;
+  }
+  .theme-light {
+    --app-bg: #f3f4f6;
+    --panel-bg: rgba(255, 255, 255, 0.8);
+    --panel-bg-opaque: #ffffff;
+    --panel-border: #e5e7eb;
+    --app-text: #1f2937;
+    --text-muted: #6b7280;
+    --app-accent: #2563eb;
+    --app-accent-hover: #1d4ed8;
+    --app-accent-text: #ffffff;
+    --input-bg: #ffffff;
+    --input-border: #d1d5db;
+  }
+  .theme-midnight {
+    --app-bg: #1e1b4b;
+    --panel-bg: rgba(55, 48, 163, 0.4);
+    --panel-bg-opaque: #3730a3;
+    --panel-border: #4338ca;
+    --app-text: #e0e7ff;
+    --text-muted: #a5b4fc;
+    --app-accent: #a78bfa;
+    --app-accent-hover: #8b5cf6;
+    --app-accent-text: #1e1b4b;
+    --input-bg: #312e81;
+    --input-border: #4f46e5;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from { 
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+</style>
+</head>
+  <body class="bg-[var(--app-bg)]">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
