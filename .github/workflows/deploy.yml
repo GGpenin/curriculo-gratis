@@ -1,9 +1,9 @@
 name: Deploy to GitHub Pages
 
+# ATENÇÃO: O deploy automático foi desativado a seu pedido.
+# Este workflow agora só será executado se você o iniciar manualmente na aba "Actions" do seu repositório no GitHub.
 on:
-  push:
-    branches:
-      - main # Ou a branch que você usa como principal
+  workflow_dispatch # Execução manual em vez de automática no 'push'
 
 permissions:
   contents: read

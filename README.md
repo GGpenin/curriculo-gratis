@@ -15,34 +15,37 @@ Este é um aplicativo para construção de currículos com a ajuda de Inteligên
     ```
     Isso iniciará o aplicativo localmente, geralmente em `http://localhost:5173`. O aplicativo irá recarregar automaticamente quando você fizer alterações no código.
 
-## Como Publicar no GitHub Pages
+## Como Publicar (Deploy Manual)
 
-Este projeto está configurado para ser publicado no GitHub Pages de forma automatizada usando GitHub Actions. Siga os passos abaixo:
+O processo de deploy automático foi desativado. Para publicar seu site, você precisa gerar os arquivos estáticos e enviá-los para um serviço de hospedagem de sua escolha (como GitHub Pages, Vercel, Netlify, etc.).
 
-### Passo 1: Configurar o Repositório
+### Passo 1: Fornecer a Chave da API (API_KEY)
 
-1.  **Crie um repositório no GitHub** e envie o código deste projeto para ele.
+Para que a funcionalidade de IA funcione no site publicado, você **precisa** fornecer sua chave da API do Google Gemini durante o processo de build.
 
-2.  **Atualize os arquivos de configuração:**
-    *   Abra o arquivo `vite.config.ts` e altere a linha `base: '/<NOME-DO-SEU-REPOSITORIO>/',` para o nome do seu repositório. Por exemplo, se seu repositório se chama `meu-curriculo-app`, a linha deve ser `base: '/meu-curriculo-app/',`.
+### Passo 2: Gerar os Arquivos do Site (Build)
 
-### Passo 2: Adicionar a Chave da API (API_KEY)
+Execute o seguinte comando no seu terminal. Substitua `SUA_CHAVE_API_AQUI` pela sua chave real do Google Gemini.
 
-Para que a funcionalidade de IA funcione, você precisa fornecer sua chave da API do Google Gemini de forma segura.
+**No macOS/Linux:**
+```bash
+API_KEY=SUA_CHAVE_API_AQUI npm run build
+```
 
-1.  No seu repositório do GitHub, vá para **Settings** > **Secrets and variables** > **Actions**.
-2.  Clique em **New repository secret**.
-3.  No campo **Name**, digite `API_KEY`.
-4.  No campo **Value**, cole a sua chave da API do Google Gemini.
-5.  Clique em **Add secret**.
+**No Windows (Command Prompt):**
+```bash
+set API_KEY=SUA_CHAVE_API_AQUI&& npm run build
+```
 
-O workflow do GitHub Actions usará essa chave durante o processo de build sem expô-la no código público.
+**No Windows (PowerShell):**
+```bash
+$env:API_KEY="SUA_CHAVE_API_AQUI"; npm run build
+```
 
-### Passo 3: Ativar o GitHub Pages
+Este comando irá criar uma pasta chamada `dist` no seu projeto.
 
-1.  Envie suas alterações para o repositório (`git push`). O GitHub Action será executado automaticamente.
-2.  No seu repositório, vá para **Settings** > **Pages**.
-3.  Na seção **Build and deployment**, altere a **Source** de `Deploy from a branch` para `GitHub Actions`.
-4.  Após a primeira execução bem-sucedida do workflow, seu site estará disponível no endereço `https://<SEU-USUARIO>.github.io/<NOME-DO-SEU-REPOSITORIO>/`.
+### Passo 3: Enviar para Hospedagem
 
-Pronto! Seu aplicativo será atualizado automaticamente toda vez que você enviar novas alterações para a branch `main`.
+A pasta `dist` contém todos os arquivos HTML, CSS e JavaScript prontos para produção.
+
+Você pode agora pegar o **conteúdo** desta pasta e arrastá-lo para a interface do seu serviço de hospedagem preferido ou seguir as instruções específicas deles para fazer o deploy de um site estático.
